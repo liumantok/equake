@@ -18,10 +18,8 @@ class equakeMode():
             logic = equakeLogic()
             io = equakeIO()
                     
-            parameter = io.requestInput()
-                    
-            #if not logic.analyzeInput(parameter): not for now
-            #    print("Nope. ")
+            timeframe = io.inquireTimeframe()
+            group = io.inquireGroup()
 
-            io.defaultMessage(logic.requestData())    
+            io.defaultMessage(logic.requestData(timeframe, group))
         
