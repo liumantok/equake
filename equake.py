@@ -1,7 +1,7 @@
-from equakeMode import equakeMode
+from equake_mode import EquakeMode
+
 def main():
-    mode = equakeMode()
-    mode.mode()
-    
-    
+    mode = EquakeMode()
+    mode.mode()    
+
 main()

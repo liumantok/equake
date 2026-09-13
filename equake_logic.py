@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 import requests
 
-class equakeLogic():
+class EquakeLogic:
 
     def __init__(self):
         self.parameters = {
@@ -16,11 +16,11 @@ class equakeLogic():
         "M1.0+" : "1.0",
         "All" : "all"
     }
-    def convertTime(self, time):
+    def convert_time(self, time):
         utc_time = datetime.fromtimestamp(time / 1000, tz=timezone.utc)
         return utc_time
     
-    def requestData(self, timeframe, group):
+    def request_data(self, timeframe, group):
         timeframe = self.parameters[timeframe]
         group = self.parameters[group]
 
@@ -28,10 +28,11 @@ class equakeLogic():
 
         response = requests.get(url)
         data = response.json()
-        msg = ""
+        
+        eqs = []
         for eq in data['features'][:5]:
             place = eq['properties']['place']
             mag = eq['properties']['mag']
-            time = self.convertTime((eq['properties']['time']))
-            msg = msg + (f"Magnitude {mag} - {place} - {time}")
-        return msg
+            time = self.convert_time((eq['properties']['time']))
+            eqs.append(f"Magnitude {mag} - {place} - {time}")
+        return eqs

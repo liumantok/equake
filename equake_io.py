@@ -1,17 +1,14 @@
 import questionary
 
-class equakeIO:
+class EquakeIO:
 
-    def __init__(self):
-        pass
-
-    def welcomeMessage(self):
+    def welcome_message(self):
         print("Welcome to equake!")
 
-    def presentOptions(self):
+    def present_options(self):
         print("input parameters ")
     
-    def inquireTimeframe(self):
+    def inquire_timeframe(self):
         timeframe = questionary.select(
             "Choose a timeframe. ",
             choices=[
@@ -22,7 +19,7 @@ class equakeIO:
             ]).ask()
         return timeframe
 
-    def inquireGroup(self):
+    def inquire_group(self):
         group = questionary.select(
             "Choose which group of earthquakes to show. Alternatively, you may also choose to see all. ",
             choices=[
@@ -34,5 +31,6 @@ class equakeIO:
             ]).ask()
         return group
     
-    def defaultMessage(self, msg):
-        print(msg)
+    def display_earthquakes(self, eqs):
+        for eq in eqs:
+            print(eq)
