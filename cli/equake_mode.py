@@ -1,5 +1,5 @@
-from equake_io import EquakeIO
-from equake_logic import EquakeLogic
+from cli.equake_io import EquakeIO
+from logic.equake_logic import EquakeLogic
 
 class EquakeMode:
     

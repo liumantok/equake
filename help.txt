@@ -1,0 +1,7 @@
+To use the CLI version, run 
+python -m cli.equake
+from the root dir (equake/).
+
+To use the web version, run
+uvicorn main:app
+from the root dir (equake/).

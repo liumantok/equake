@@ -1,4 +1,4 @@
-from equake_mode import EquakeMode
+from cli.equake_mode import EquakeMode
 
 def main():
     mode = EquakeMode()

@@ -6,7 +6,7 @@ class EquakeIO:
         print("Welcome to equake!")
 
     def present_options(self):
-        print("input parameters ")
+        print("Choose your paraneters. ")
     
     def inquire_timeframe(self):
         timeframe = questionary.select(
