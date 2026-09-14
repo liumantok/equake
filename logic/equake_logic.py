@@ -26,8 +26,11 @@ class EquakeLogic:
 
         url = f"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/{group}_{timeframe}.geojson"
 
-        response = requests.get(url)
-        data = response.json()
+        try: #welcome to catching errors brother
+            response = requests.get(url)
+            data = response.json()
+        except: #nah jk ill get back to this sometime just not now
+            return "request_failed"
         
         eqs = []
         for eq in data['features'][:5]:

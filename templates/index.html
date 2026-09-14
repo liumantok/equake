@@ -1,4 +1,6 @@
-<!DOCTYPE html> <html> <head> <title>Earthquakes</title> </head> <body>
+<!DOCTYPE html> <html> <head> <link rel="stylesheet" href="/static/index.css">
+    
+    <title>Earthquakes</title> </head> <body>
 <h1>Earthquakes</h1>
 
 <label for="timeframe">Timeframe:</label>
@@ -24,7 +26,7 @@
 
 <button onclick="getEarthquakes()">Get Earthquakes</button>
 
-<pre id="result"></pre>
+<ul id="result"></ul>
 
 <script>
     async function getEarthquakes() {
@@ -37,9 +39,11 @@
 
         const response = await fetch(url);
 
-        const data = await response.json();
-
-        document.getElementById("result").innerHTML = data;
+        const list = await response.json();
+        
+        document.getElementById("result").innerHTML = 
+            list.map(x => `<li>${x}</li>`).join("");
+        
     }
 </script>
 
